@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+
+    parameters {
+        string(defaultValue: "", description: "Deployment Name?", name: "addName")
+        choice(choices: ["EU-WEST-2A", "EU-WEST-2B", "EU-WEST-2C"], description: "What AZ?", name: "addChoice")
+        booleanParam(defaultValue: false, description: "Conform Deployment ?", name: "addBoolean")
+    }
+
+    stages {
+        stage("Deploy") {
+            steps {
+                echo "Your Deployment name is: ${params.addName} /n"
+                echo "You select: ${params.addChoice} /n"
+                echo "Deployment status: ${params.addBoolean} /n"
+            }
+        }
+    }
+}

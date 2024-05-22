@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+    
+    parameters {
+        choice(choices: ["TEST", "QA", "DEV", "PROD"], description: "chosse the options from this", name: "addChoice")
+    }
+
+    stages {
+        stage("Demo") {
+            steps {
+                echo "Choice is set to: ${params.addChoice}"
+            }
+        }
+    }
+}

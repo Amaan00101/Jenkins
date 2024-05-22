@@ -1,0 +1,15 @@
+pipeline{
+    agent any
+
+    parameters{
+        string(defaultValue: "TEST", description: "Where you want to deploy", name: "addValue")
+    }
+    
+    stages {
+        stage("Demo"){
+            steps {
+                echo "The deploy area is: ${params.addValue}"
+            }
+        }
+    }
+}
